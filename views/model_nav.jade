@@ -1,0 +1,38 @@
+mixin nav_topbar(isLogin)
+  nav(
+    class="top-bar",
+    role="navigation"
+  )
+    ul(class="title-area")
+      li(class="name")
+        h1
+          a(href="#") Genesys
+  
+        
+    section(class!="top-bar-section")
+      ul(class="right")
+        li
+          a(href="#", data-reveal-id="modalLauncher") Upload
+        li
+          a(href="#" data-reveal-id="logIn") Log In
+        li
+          a(href="#" data-reveal-id="signUp") Sign Up
+
+      ul(class="left")
+        li
+          a(href="#")= isLogin ? "Logged In" : "Not Logged In"
+    div(id="modalLauncher",class!="reveal-modal",data-reveal)
+      form(id="fileUpload" action="sceneObjects/upload" enctype="multipart/form-data" method="post") 
+        .row
+          div(class!="large-6 columns")
+            input(type="text" id="modelName" name="modelName")
+        .row
+          div(class!="large-6 columns")
+            p Upload thumbnail picture
+            input(type="file" id="myThumbnail" name="myThumbnail")
+          div(class!="large-6 columns")
+            p Upload mesh model
+            input(type="file" id="myMesh" name="myMesh")
+        .row
+          input(type="submit" class="radius button" value="Upload")
+        a(class!="close-reveal-modal",aria-label="Close") &#215;
