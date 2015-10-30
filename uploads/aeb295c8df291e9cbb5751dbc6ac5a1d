@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+
+struct{
+  unsigned red:3;
+  unsigned green:3;
+  unsigned blue:7;
+
+} PixelRGB;
+
+int main(){
+  PixelRGB.red = 0x7;
+  PixelRGB.green = 0x2;
+  PixelRGB.blue = 0x40;
+
+  printf("PixelRGB.red = %d\n",PixelRGB.red); 
+  printf("PixelRGB.green = %d\n",PixelRGB.green);
+  printf("PixelRGB.blue = %d\n",PixelRGB.blue);
+  return 0;
+}

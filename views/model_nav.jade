@@ -22,17 +22,17 @@ mixin nav_topbar(isLogin)
         li
           a(href="#")= isLogin ? "Logged In" : "Not Logged In"
     div(id="modalLauncher",class!="reveal-modal",data-reveal)
-      form(id="fileUpload" action="sceneObjects/upload" enctype="multipart/form-data" method="post") 
+      form(id="fileUpload" enctype="multipart/form-data" method="post" action="sceneObjects/upload") 
         .row
           div(class!="large-6 columns")
             input(type="text" id="modelName" name="modelName")
         .row
           div(class!="large-6 columns")
             p Upload thumbnail picture
-            input(type="file" id="myThumbnail" name="myThumbnail")
+            input(type="file" id="objThumbnail" name="objThumbnail")
           div(class!="large-6 columns")
             p Upload mesh model
-            input(type="file" id="myMesh" name="myMesh")
+            input(type="file" id="objFile" name="objFile")
         .row
           input(type="submit" class="radius button" value="Upload")
         a(class!="close-reveal-modal",aria-label="Close") &#215;

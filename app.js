@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var multer  = require('multer');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var sceneObjects = require('./routes/sceneObjects');
@@ -12,7 +12,7 @@ var sceneObjects = require('./routes/sceneObjects');
 
 var app = express();
 
-var upload = multer({ dest: 'uploads/' });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -30,8 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-var cpUpload = upload.fields([{ name: 'objThumbnail', maxCount: 1 }, { name: 'objFile', maxCount: 1 }]);
-app.use('/sceneObjects',cpUpload,sceneObjects);
+app.use('/sceneObjects',sceneObjects);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
